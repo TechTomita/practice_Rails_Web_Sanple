@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
         @message = Message.new(message_params)
         
         if @message.save
-            flash[:successf] = "Messageが正常に投稿されました"
+            flash[:success] = "Messageが正常に投稿されました"
             redirect_to @message
         else
             flash.now[:danger] = "Messageが投稿されませんでした"
@@ -28,6 +28,15 @@ class MessagesController < ApplicationController
     end
     
     def update
+        @message = Message.find(params[:id])
+        
+        if @message.update(message_params)
+            flash[:success] = "Messageは正常に更新されました"
+            redirect_to @message
+        else
+            flash.now[:danger] = "Messageは更新されませんでした"
+            render :edit
+        end
     end
     
     def destroy
