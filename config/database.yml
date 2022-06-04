@@ -49,7 +49,9 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
+  adapter: postgersql
+  encoding: unicode
+  pool: 5
   database: message_board_production
   username: message_board
   password: <%= ENV['message_board_DATABASE_PASSWORD'] %>
