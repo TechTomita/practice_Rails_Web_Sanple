@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+(1..100).each do |num|
+    Message.create(titie: "test" + num.to_s, content: "content" + num.to_s)
+end
